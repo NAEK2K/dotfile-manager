@@ -1,0 +1,28 @@
+{
+    "repo_url": "git@github.com:NAEK2K/naek-dotfiles.git",
+    "dotfiles": [
+        [
+            ".zshrc",
+            "~"
+        ],
+        [
+            ".vimrc",
+            "~"
+        ],
+        [
+            ".tmux.conf",
+            "~"
+        ],
+        [
+            ".bashrc",
+            "~"
+        ],
+        [
+            ".vim/coc-settings.json",
+            "~/.vim"
+        ]
+    ],
+    "create_directories": [
+        "~/.vim"
+    ]
+}
