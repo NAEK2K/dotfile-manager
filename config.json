@@ -3,23 +3,23 @@
     "dotfiles": [
         [
             ".zshrc",
-            "~"
+            "~/.zshrc"
         ],
         [
             ".vimrc",
-            "~"
+            "~/.vimrc"
         ],
         [
             ".tmux.conf",
-            "~"
+            "~/.tmux.conf"
         ],
         [
             ".bashrc",
-            "~"
+            "~/.bashrc"
         ],
         [
             ".vim/coc-settings.json",
-            "~/.vim"
+            "~/.vim/coc-settings.json"
         ]
     ],
     "create_directories": [
