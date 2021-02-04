@@ -24,20 +24,6 @@ def get_path(path):
     return os.path.expandvars(os.path.expanduser(path))
 
 
-def create_symbolic_link(target, destination):
-    link_command = " ".join(
-        ["ln", "-s", os.path.abspath(target), get_path(destination)]
-    )
-    try:
-        check_output(link_command, shell=True)
-    except CalledProcessError:
-        pass
-
-
-def remove_symbolic_link(link_path):
-    os.unlink(link_path)
-
-
 def update_repo():
     git_command = " ".join(["git", "fetch;", "git", "pull", "--force"])
     try:
@@ -74,7 +60,10 @@ if __name__ == "__main__":
 
     if args.remake:
         for dotfile in config.get("dotfiles"):
-            remove_symbolic_link(get_path(dotfile[1]))
+            os.unlink(get_path(dotfile[0]))
 
     for dotfile in config.get("dotfiles"):
-        create_symbolic_link(get_path(dotfile[0]), get_path(dotfile[1]))
+        try:
+            os.symlink(get_path(dotfile[0]), get_path(dotfile[1]))
+        except FileExistsError:
+            print("{} already exists.".format(get_path(dotfile[1])))
